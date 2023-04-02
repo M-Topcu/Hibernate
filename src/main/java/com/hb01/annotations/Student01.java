@@ -1,8 +1,9 @@
  package com.hb01.annotations;
 
-import java.util.Arrays;
-
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
 //Bu annotationu koydugumuz class veritabaninda bir tabloya karsilik gelir
 @Entity
@@ -12,6 +13,7 @@ public class Student01 {
 
 	//primary key olusmasini sagliyor
 	@Id
+	//Column(name="std_id) ile isim verilebilir
 	private int id;
 	
 	//length default=255, nullable default=true, unique default=false
