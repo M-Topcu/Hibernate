@@ -40,6 +40,12 @@ public class Diary {
 	public void setStudent(Student03 student) {
 		this.student = student;
 	}
+
+	@Override
+	public String toString() {
+		return "Diary [id=" + id + ", name=" + name + ", student=" + student + "]";
+	}
 	
 	
+
 }

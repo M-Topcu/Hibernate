@@ -2,6 +2,7 @@ package com.hb03.onetoone;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 public class RunnerFetch03 {
@@ -15,6 +16,21 @@ public class RunnerFetch03 {
 		
 		Session session = sf.openSession();
 		
+		Transaction tx = session.beginTransaction();
+		
+		// Student fetch ediyoruz bir id ile
+		Student03 student = session.get(Student03.class, 1001);
+		
+		// Diary fetch ediyoruz
+		Diary diary = session.get(Diary.class, 101);
+		
+		System.out.println(student);
+		System.out.println("===================");
+		System.out.println(diary);
+		
+		
+		
+		tx.commit();
 		
 		session.close();
 		
