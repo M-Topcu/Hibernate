@@ -1,12 +1,13 @@
- package com.hb03.onetoone;
+ package com.hb04.bi_onetoone;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToOne;
 
 
 @Entity
-public class Student03{
+public class Student04{
 
 	@Id
 	private int id;
@@ -17,6 +18,9 @@ public class Student03{
 	
 	
 	private int grade;
+	
+	@OneToOne(mappedBy="student") // bu kullanilmazsa iki tarafta da iliski icin bir kolon olusur
+	private Diary2 diary;
 	
 	
 	
@@ -44,10 +48,20 @@ public class Student03{
 		this.grade = grade;
 	}
 
+	public Diary2 getDiary() {
+		return diary;
+	}
+
+	public void setDiary(Diary2 diary) {
+		this.diary = diary;
+	}
+
 	@Override
 	public String toString() {
-		return "Student03 [id=" + id + ", name=" + name + ", grade=" + grade + "]";
+		return "Student04 [id=" + id + ", name=" + name + ", grade=" + grade + "]";
 	}
+
+	
 	
 	
 	

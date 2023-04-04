@@ -1,4 +1,4 @@
-package com.hb03.onetoone;
+package com.hb03.uni_onetoone;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -10,7 +10,8 @@ public class RunnerFetch03 {
 	public static void main(String[] args) {
 		
 		Configuration con = new
-				Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Student03.class);
+				Configuration().configure("hibernate.cfg.xml").
+				addAnnotatedClass(Student03.class).addAnnotatedClass(Diary.class);
 		
 		SessionFactory sf = con.buildSessionFactory();
 		
@@ -27,7 +28,6 @@ public class RunnerFetch03 {
 		System.out.println(student);
 		System.out.println("===================");
 		System.out.println(diary);
-		
 		
 		
 		tx.commit();

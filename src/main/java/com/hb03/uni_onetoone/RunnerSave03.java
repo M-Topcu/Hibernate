@@ -1,4 +1,4 @@
-package com.hb03.onetoone;
+package com.hb03.uni_onetoone;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
