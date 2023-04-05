@@ -6,16 +6,15 @@ import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
 public class RunnerSave06 {
+	/* 
+	@JoinTable default olarak kullanilir @JoinColumn olmazsa ve 3. bir tablo olusturulur. 
+	Ekstra queryler kullanip durdugu icin kullanisli degil bu yontem
+	Bu yuzden JoinColumn kullaniriz
+	
+	@JoinColumn eklenen veriable ekledigimiz classta degil referans olan classta kolon olusturur bu sekilde
+	*/
 
 	public static void main(String[] args) {
-		
-		Configuration con = new Configuration().configure("hibernate.cfg.xml").
-				addAnnotatedClass(Book06.class).addAnnotatedClass(Student06.class);
-
-		
-		SessionFactory sf = con.buildSessionFactory();
-		
-		Session session = sf.openSession();
 		
 		Student06 student1 = new Student06();
 		student1.setId(1001);
@@ -32,8 +31,37 @@ public class RunnerSave06 {
 		student3.setName("Tony Stark");
 		student3.setGrade(9);
 		
-	
+		Book06 book1 = new Book06();
+		book1.setId(101);
+		book1.setName("Johns`s Art Book");
+		
+		Book06 book2 = new Book06();
+		book2.setId(102);
+		book2.setName("John`s Math Book");
+		
+		student1.getBookList().add(book1);
+		student1.getBookList().add(book2);
+		
+		Book06 book3 = new Book06();
+		book3.setId(103);
+		book3.setName("James` Java Book");
+		
+		student2.getBookList().add(book3);
+		
+		Configuration con = new Configuration().configure("hibernate.cfg.xml").
+				addAnnotatedClass(Book06.class).addAnnotatedClass(Student06.class);
+
+		
+		SessionFactory sf = con.buildSessionFactory();
+		
+		Session session = sf.openSession();
+		
+		
 		Transaction tx = session.beginTransaction();
+		
+		session.save(book1);
+		session.save(book2);
+		session.save(book3);
 		
 		session.save(student1);
 		session.save(student2);

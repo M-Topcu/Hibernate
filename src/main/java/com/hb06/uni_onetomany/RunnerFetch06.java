@@ -1,7 +1,5 @@
 package com.hb06.uni_onetomany;
 
-import java.util.List;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -20,6 +18,25 @@ public class RunnerFetch06 {
 		Session session = sf.openSession();
 		
 		Transaction tx = session.beginTransaction();
+		
+		Student06 student = session.get(Student06.class, 1001);
+		
+		System.out.println(student);
+		
+		System.out.println("------------------------------------------");
+		
+		//Bir ogrenci id`si ile kitaplari cekme
+		String hqlQuery1 = "FROM Book06 WHERE id=101";
+		Book06 book = session.createQuery(hqlQuery1,Book06.class).uniqueResult();
+		
+		System.out.println(book);
+		
+		System.out.println("------------------------------------------");
+		
+		//student`in her bir book`unun ismini yazdirin
+		student.getBookList().forEach(b->System.out.println(b.getName()));
+		
+		System.out.println("------------------------------------------");
 		
 		
 		tx.commit();

@@ -6,6 +6,7 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.OneToMany;
 
 @Entity
@@ -20,6 +21,7 @@ public class Student06 {
 	private int grade;
 	
 	@OneToMany
+	@JoinColumn
 	private List<Book06> bookList = new ArrayList<>();
 	
 	
@@ -58,14 +60,8 @@ public class Student06 {
 		this.grade = grade;
 	}
 
-	private List<Book06> getBookList() {
+	public List<Book06> getBookList() {
 		return bookList;
-	}
-	
-	
-	
-	private void setBookList(List<Book06> bookList) {
-		this.bookList = bookList;
 	}
 
 

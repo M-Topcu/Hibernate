@@ -12,25 +12,25 @@ public class RunnerSave05 {
 	 */
 	public static void main(String[] args) {
 		
-		Configuration con = new Configuration().configure("hibernate.cfg.xml");
-				//addAnnotatedClass(University.class).addAnnotatedClass(Student05.class);
+		Configuration con = new Configuration().configure("hibernate.cfg.xml").
+				addAnnotatedClass(University.class).addAnnotatedClass(Student05.class);
 		// Bunu eklemeden hibernate.cfg.xml uzerinden halledebiliyoruz
 		
 		SessionFactory sf = con.buildSessionFactory();
 		
 		Session session = sf.openSession();
 		
-		Student06 student1 = new Student06();
+		Student05 student1 = new Student05();
 		student1.setId(1001);
 		student1.setName("John Coffee");
 		student1.setGrade(10);
 		
-		Student06 student2 = new Student06();
+		Student05 student2 = new Student05();
 		student2.setId(1002);
 		student2.setName("James Bond");
 		student2.setGrade(11);
 		
-		Student06 student3 = new Student06();
+		Student05 student3 = new Student05();
 		student3.setId(1003);
 		student3.setName("Tony Stark");
 		student3.setGrade(9);
