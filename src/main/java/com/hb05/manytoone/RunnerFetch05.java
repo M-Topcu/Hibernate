@@ -13,7 +13,7 @@ public class RunnerFetch05 {
 		
 		Configuration con = new
 				Configuration().configure("hibernate.cfg.xml").
-				addAnnotatedClass(Student05.class).addAnnotatedClass(University.class);
+				addAnnotatedClass(Student06.class).addAnnotatedClass(University.class);
 		
 		SessionFactory sf = con.buildSessionFactory();
 		
@@ -21,7 +21,7 @@ public class RunnerFetch05 {
 		
 		Transaction tx = session.beginTransaction();
 		
-		Student05 student = session.get(Student05.class, 1001);
+		Student06 student = session.get(Student06.class, 1001);
 		
 		System.out.println(student.getUniversite()); // University [id=1, name=TPE Tech]
 		
@@ -30,7 +30,7 @@ public class RunnerFetch05 {
 		// University id`si 1 olan butun ogrencileri getir
 		String hqlQuery1 = "FROM Student05 s where s.university.id=1";
 		
-		List<Student05> resultList1 = session.createQuery(hqlQuery1,Student05.class).getResultList();
+		List<Student06> resultList1 = session.createQuery(hqlQuery1,Student06.class).getResultList();
 		
 		resultList1.forEach(s->System.out.println(s));
 		

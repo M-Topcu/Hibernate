@@ -10,7 +10,7 @@ import javax.persistence.ManyToOne;
 import javax.persistence.PrePersist;
 
 @Entity
-public class Student05 {
+public class Student06 {
 	
 	@Id
 	private int id;

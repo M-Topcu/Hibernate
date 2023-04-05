@@ -1,20 +1,17 @@
-package com.hb05.manytoone;
+package com.hb06.uni_onetomany;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
-public class RunnerSave05 {
+public class RunnerSave06 {
 
-	/**
-	 * @param args
-	 */
 	public static void main(String[] args) {
 		
-		Configuration con = new Configuration().configure("hibernate.cfg.xml");
-				//addAnnotatedClass(University.class).addAnnotatedClass(Student05.class);
-		// Bunu eklemeden hibernate.cfg.xml uzerinden halledebiliyoruz
+		Configuration con = new Configuration().configure("hibernate.cfg.xml").
+				addAnnotatedClass(Book06.class).addAnnotatedClass(Student06.class);
+
 		
 		SessionFactory sf = con.buildSessionFactory();
 		
@@ -35,18 +32,9 @@ public class RunnerSave05 {
 		student3.setName("Tony Stark");
 		student3.setGrade(9);
 		
-		University universite = new University();
-		universite.setId(1);
-		universite.setName("TPE Tech");
-		
-		student1.setUniversite(universite);
-		student2.setUniversite(universite);
-		student3.setUniversite(universite);
-
-		
+	
 		Transaction tx = session.beginTransaction();
 		
-		session.save(universite);
 		session.save(student1);
 		session.save(student2);
 		session.save(student3);
