@@ -43,6 +43,10 @@ public class RunnerSave04 {
 		diary2.setName("James` Diary");
 		diary2.setStudent(student2);
 		
+		Diary2 diary3 = new Diary2();
+		diary3.setId(103);
+		diary3.setName("No One`s Diary");
+		
 		Transaction tx = session.beginTransaction();
 		
 		session.save(student1);
@@ -51,6 +55,7 @@ public class RunnerSave04 {
 		
 		session.save(diary1);
 		session.save(diary2);
+		session.save(diary3);
 		
 		tx.commit();
 		
