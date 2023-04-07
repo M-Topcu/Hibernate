@@ -51,13 +51,49 @@ public class RunnerFetch07 {
 		
 		
 //		String hqlQuery3 = "DELETE FROM Book07";
-//		int numOfRec4 = session.createQuery(hqlQuery3).executeUpdate();
-//		System.out.println("Effected Row Count: " + numOfRec4);
-//		
-//		String hqlQuery2 = "DELETE FROM Student07";
-//		int numOfRec3 = session.createQuery(hqlQuery2).executeUpdate();
+//		int numOfRec3 = session.createQuery(hqlQuery3).executeUpdate();
 //		System.out.println("Effected Row Count: " + numOfRec3);
 //		
+//		String hqlQuery2 = "DELETE FROM Student07";
+//		int numOfRec4 = session.createQuery(hqlQuery2).executeUpdate();
+//		System.out.println("Effected Row Count: " + numOfRec4);
+
+		//Kitap ismine gore kitap silmeyi saglayan bir HQL query yazalim
+//		String hqlQuery3 = "DELETE FROM Book07 b WHERE b.name='Johns`s Art Book'";// `` seklinde yaptik
+//																			//cunku string sanirdi aksi takdirde
+//		int numOfRec5 = session.createQuery(hqlQuery3).executeUpdate();
+//		System.out.println("Effected Row Count: " + numOfRec5);
+		
+//		String hqlQuery4 = "DELETE FROM Book07 WHERE student=1001";
+//		int numOfRec6 = session.createQuery(hqlQuery4).executeUpdate();
+//		System.out.println("Effected Row Count: " + numOfRec6);
+		
+		// Herhangi bir kitaba sahip olmayan bir ogrenci silme
+//		String hqlQuery5 = "DELETE FROM Student07 WHERE id=1001";
+//		int numOfRec7 = session.createQuery(hqlQuery5).executeUpdate();
+//		System.out.println("Effected Row Count: " + numOfRec7);
+		
+//		//Kitaba sahip ogrenciyi silme denemesi
+//		String hqlQuery6 = "DELETE FROM Student07 WHERE id=1003";
+//		int numOfRec8 = session.createQuery(hqlQuery6).executeUpdate();
+//		System.out.println("Effected Row Count: " + numOfRec8); // exc verdi, foregn keyi var
+		// ya once kitabi silcez, ya da Student07 classinda mappedBy = orphanRemoval=true eklicez
+		
+//		// orphanRemoval yaptiktan sonra hibernate methodu ile silme
+//		Student07 student = session.get(Student07.class,1003);
+//		session.delete(student);
+		
+//		Student07 student = session.get(Student07.class,1001);
+//		student.getBookList().set(0, null); // kitaplari null oldu, hibernate de tablodan otomatik sildi
+		
+		
+		String hqlQuery7 = "SELECT s FROM Student07 s JOIN Book07 b ON s.id=b.student";
+		session.createQuery(hqlQuery7).getResultList();
+		
+		// Yukaridaki ile ayni sey
+		String hqlQuery8 = "SELECT s FROM Student07 s JOIN s.bookList";
+		session.createQuery(hqlQuery8).getResultList();
+		
 		
 		
 		tx.commit();

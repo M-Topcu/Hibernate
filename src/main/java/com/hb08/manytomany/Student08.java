@@ -1,4 +1,4 @@
-package com.hb07.bi_onetomany;
+package com.hb08.manytomany;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -6,10 +6,12 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.OneToMany;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 @Entity
-public class Student07 {
+public class Student08 {
 	
 	@Id
 	private int id;
@@ -19,11 +21,17 @@ public class Student07 {
 	
 	private int grade;
 	
-	@OneToMany(mappedBy="student", orphanRemoval=true)
-	private List<Book07> bookList = new ArrayList<>();
+	@ManyToMany
+	@JoinTable(
+			name="student08_book08",
+			joinColumns = {@JoinColumn(name = "std_id")},
+			inverseJoinColumns = {@JoinColumn(name = "book_id")}
+			)
+	private List<Book08> bookList = new ArrayList<>();
 	
 	
 
+	
 	public int getId() {
 		return id;
 	}
@@ -58,15 +66,22 @@ public class Student07 {
 		this.grade = grade;
 	}
 
-	public List<Book07> getBookList() {
+	
+	
+	
+	public List<Book08> getBookList() {
 		return bookList;
 	}
 
 
+	public void setBookList(List<Book08> bookList) {
+		this.bookList = bookList;
+	}
 
+	
 	@Override
 	public String toString() {
-		return "Student07 [id=" + id + ", name=" + name + ", grade=" + grade + ", bookList=" + bookList + "]";
+		return "Student08 [id=" + id + ", name=" + name + ", grade=" + grade + ", bookList=" + bookList + "]";
 	}
 
 	
