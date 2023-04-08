@@ -1,5 +1,6 @@
 package com.hb15.concurrency_locktype;
 
+import org.hibernate.LockMode;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
@@ -42,8 +43,15 @@ public class RunnerFetch15 {
 		Transaction tx3 = session3.beginTransaction();
 		
 		System.out.println("After transaction begin......");
+		
+		Student15 student3 = session3.get(Student15.class, 1L,LockMode.PESSIMISTIC_WRITE);
+		// bir kisinin isi bitene kadar digeri bekliyor
+		
+		System.out.println("After get student......");
+		
 		tx3.commit();
 		session3.close();
+		
 		sf.close();
 		
 
