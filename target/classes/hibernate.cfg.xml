@@ -27,11 +27,24 @@
         			  create-drop ise schemayi uygulama her calistirildiginda olusturur, uygulama sonlandiginda silinir
         			  validate ise schemayi validate yapar
         			  none ise yukaridakilerin hicbirini yapmaz			-->
+        			  
         <property name="hbm2ddl.auto">update</property>
 
          <property name="show_sql">true</property> 
 
         <property name="format_sql">true</property>
+        
+        <!-- Second level cache`i aktive edecegimizi gosterir-->
+        <property name="hibernate.cache.use_second_level_cache">true</property>
+        
+        <!-- Query cache`i aktive edecegimizi gosterir-->
+        <property name="hibernate.cache.use_query_cache">true</property>
+        
+        <!-- Region olusturabilmek icin-->
+        <property name="hibernate.cache.region.factory_class">org.hibernate.cache.jcache.internal.JCacheRegionFactory</property>
+        
+        <!-- Cache provider`i belirtmek icin -->
+        <property name="hibernate.javax.cache.provider">org.ehcache.jsr107.EhcacheCachingProvider</property>
         
         <!--addAnnotatedClass(University.class).addAnnotatedClass(Student05.class); yerine bunlar yapilabilir-->
         <!-- 

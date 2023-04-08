@@ -9,17 +9,17 @@ public class RunnerSave09 {
 	
 	public static void main(String[] args) {
 		
-		Student09 student1 = new Student09();
+		Student12 student1 = new Student12();
 		student1.setId(1001);
 		student1.setName("John Coffee");
 		student1.setGrade(10);
 		
-		Student09 student2 = new Student09();
+		Student12 student2 = new Student12();
 		student2.setId(1002);
 		student2.setName("James Bond");
 		student2.setGrade(11);
 		
-		Student09 student3 = new Student09();
+		Student12 student3 = new Student12();
 		student3.setId(1003);
 		student3.setName("Tony Stark");
 		student3.setGrade(9);
@@ -57,7 +57,7 @@ public class RunnerSave09 {
 		book5.setStudent(student3);
 		
 		Configuration con = new Configuration().configure("hibernate.cfg.xml").
-				addAnnotatedClass(Book09.class).addAnnotatedClass(Student09.class);
+				addAnnotatedClass(Book09.class).addAnnotatedClass(Student12.class);
 
 		
 		SessionFactory sf = con.buildSessionFactory();
