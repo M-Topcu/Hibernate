@@ -6,7 +6,6 @@ import java.util.List;
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
@@ -23,7 +22,7 @@ public class Student09 {
 	
 	// child tablelarda da yapilan degisiklerin uygulanmasini saglar cascade
 	//FetchType.EAGER - FetchType.LAZY veri yukleme tipleri
-	@OneToMany(mappedBy="student", orphanRemoval=true, cascade = CascadeType.ALL,fetch=FetchType.EAGER)
+	@OneToMany(mappedBy="student", orphanRemoval=true, cascade = CascadeType.ALL/*,fetch=FetchType.EAGER*/)
 	private List<Book09> bookList = new ArrayList<>();
 	
 	
