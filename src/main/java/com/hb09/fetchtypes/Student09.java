@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
 @Entity
-public class Student12 {
+public class Student09 {
 	
 	@Id
 	private int id;

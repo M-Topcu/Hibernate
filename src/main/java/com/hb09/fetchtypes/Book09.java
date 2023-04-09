@@ -15,7 +15,7 @@ public class Book09 {
 	
 	@ManyToOne
 	@JoinColumn
-	private Student12 student;
+	private Student09 student;
 	
 	
 		
@@ -44,13 +44,13 @@ public class Book09 {
 
 
 
-	public Student12 getStudent() {
+	public Student09 getStudent() {
 		return student;
 	}
 
 
 
-	public void setStudent(Student12 student) {
+	public void setStudent(Student09 student) {
 		this.student = student;
 	}
 

@@ -48,8 +48,8 @@ public class RunnerSave08 {
 		List<Book08> bookList3 = new ArrayList<>();
 		bookList3.add(book1);
 		student3.setBookList(bookList3);
-
 		
+
 		Configuration con = new Configuration().configure("hibernate.cfg.xml").
 				addAnnotatedClass(Book08.class).addAnnotatedClass(Student08.class);
 

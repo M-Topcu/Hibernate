@@ -2,14 +2,17 @@ package com.hb10.idgenerationstrategy;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
 
 @Entity
 public class Student10 extends BaseEntity{
 	
 	//Default olarak auto, HIBERNATE belirler
-//	@Id
-	//@GeneratedValue(strategy = GenerationType.TABLE)
-	//private Long id;
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long id;
 	//Hibernate: create sequence hibernate_sequence start 1 increment 1 =>  auto
 	// Tamamen veritabaninin id olusturma strategysine guvenir, Consol autputu da yok => IDENTITY
 	//Hibernate: create sequence hibernate_sequence start 1 increment 1 => SEQUENCE

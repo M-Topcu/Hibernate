@@ -11,7 +11,7 @@ public class RunnerFetch09 {
 		
 		Configuration con = new
 				Configuration().configure("hibernate.cfg.xml").
-				addAnnotatedClass(Student12.class).addAnnotatedClass(Book09.class);
+				addAnnotatedClass(Student09.class).addAnnotatedClass(Book09.class);
 		
 		SessionFactory sf = con.buildSessionFactory();
 		

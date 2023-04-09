@@ -18,7 +18,7 @@ public class BaseEntity {// bu class entity degil, table`i yok
 	private Long id;
 	
 
-	@Column(name="vreate_on")
+	@Column(name="create_on")
 	private LocalDateTime createOn=LocalDateTime.now();
 
 	public Long getId() {

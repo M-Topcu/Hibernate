@@ -16,18 +16,6 @@ public class Book08 {
 	private String name;
 	
 	
-	public List<Student08> getStudents() {
-		return students;
-	}
-
-
-
-	public void setStudents(List<Student08> students) {
-		this.students = students;
-	}
-
-
-
 	// Asagidaki iki satir cift tarafli many-to-many icin gerekli. Tek taraflida komple yazmiyoruz bu 2 satiri
 	@ManyToMany(mappedBy = "bookList")
 	private List<Student08> students = new ArrayList<Student08>();
@@ -57,6 +45,15 @@ public class Book08 {
 		this.name = name;
 	}
 
+	public List<Student08> getStudents() {
+		return students;
+	}
+	
+	
+	
+	public void setStudents(List<Student08> students) {
+		this.students = students;
+	}
 
 
 	@Override

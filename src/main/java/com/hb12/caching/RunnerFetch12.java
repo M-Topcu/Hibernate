@@ -1,7 +1,5 @@
 package com.hb12.caching;
 
-import java.util.List;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
