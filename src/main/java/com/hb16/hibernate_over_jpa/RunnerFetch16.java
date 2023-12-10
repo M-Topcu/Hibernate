@@ -9,6 +9,7 @@ public class RunnerFetch16 {
 	public static void main(String[] args) {
 
 		EntityManagerFactory emf = Persistence.createEntityManagerFactory("studentunit");
+																			// xml`de verdigimiz isim
 		
 		EntityManager em = emf.createEntityManager();
 		

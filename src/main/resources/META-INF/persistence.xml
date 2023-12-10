@@ -13,7 +13,9 @@
     	<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
     	
     	<class>com.hb16.hibernate_over_jpa.Student16</class>
-    	
+
+		<!-- false olunca @Entity olan tum classlar ekleniyor.
+		True ise sadece yukaridaki gibi eklenen classlarin tablosu olusuyor  -->
     	<exclude-unlisted-classes>true</exclude-unlisted-classes>
     
     	<properties>
